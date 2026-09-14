@@ -501,7 +501,7 @@ Set `verbose=True` and `autosave=True` during development so you can inspect eve
 
 ## Troubleshooting
 
-**`AuthenticationError`** — your `ANTHROPIC_API_KEY` isn't set or doesn't have access to Fable 5. Run `echo $ANTHROPIC_API_KEY` and confirm.
+**`AuthenticationError`** — your `ANTHROPIC_API_KEY` isn't set or doesn't have access to Fable 5. Confirm the variable is present without printing it (`if [ -n "${ANTHROPIC_API_KEY:-}" ]; then printf 'ANTHROPIC_API_KEY is set\n'; else printf 'ANTHROPIC_API_KEY is unset\n'; fi`), and that the key has Fable 5 access.
 
 **Empty responses on reasoning tasks** — if you previously hit a regression where non-OpenAI providers returned empty strings when `reasoning_effort` was set, this was fixed in Swarms v12. Make sure you're on the latest release: `pip install -U swarms`.
 
